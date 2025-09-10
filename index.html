@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11 Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fdf2f8; 
+            background-image: url('https://placehold.co/1200x800/ffc0cb/ffffff?text=Candy+Shop+Background');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+        }
+
+        .container {
+            backdrop-filter: blur(5px) brightness(1.1);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .postcard-container {
+            perspective: 1000px;
+        }
+        .postcard {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+        .postcard.open {
+            transform: rotateY(180deg);
+        }
+        .postcard-front, .postcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .postcard-front {
+            background-color: #ffe4e6; 
+        }
+        .postcard-back {
+            background-color: #fff0f5; 
+            transform: rotateY(180deg);
+        }
+        .ribbon-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #ffe4e6;
+            filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        .ribbon-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ffe4e6;
+            filter: drop-shadow(0 -4px 2px rgba(0, 0, 0, 0.1));
+        }
+        .card-content img {
+            border-radius: 1rem;
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .swirl-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .swirl {
+            position: absolute;
+            border-radius: 50%;
+            animation: swirl-float 15s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        .swirl-1 { top: 10%; left: 5%; background-color: #ffb7b7; width: 60px; height: 60px; animation-delay: 0s; }
+        .swirl-2 { top: 30%; right: 15%; background-color: #92dff3; width: 40px; height: 40px; animation-delay: 3s; }
+        .swirl-3 { bottom: 20%; left: 20%; background-color: #b7ffb7; width: 50px; height: 50px; animation-delay: 6s; }
+        .swirl-4 { top: 50%; left: 30%; background-color: #ffd8a3; width: 70px; height: 70px; animation-delay: 9s; }
+        .swirl-5 { bottom: 5%; right: 5%; background-color: #c9a3ff; width: 55px; height: 55px; animation-delay: 12s; }
+
+        @keyframes swirl-float {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-20px) scale(1.1) rotate(180deg); }
+        }
+
+        .candy-button {
+            background-image: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(254, 207, 239, 0.7);
+            transition: all 0.3s ease-in-out;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .candy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(254, 207, 239, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="swirl-container">
+        <div class="swirl swirl-1"></div>
+        <div class="swirl swirl-2"></div>
+        <div class="swirl swirl-3"></div>
+        <div class="swirl swirl-4"></div>
+        <div class="swirl swirl-5"></div>
+    </div>
+    <div class="container p-8 rounded-[2rem] max-w-lg w-full text-center z-10">
+        <h1 class="text-6xl font-extrabold text-[#d2527f] mb-6 font-['Pacifico'] leading-tight">Day 11 Theme</h1>
+        <p class="text-lg text-gray-700 mb-8 font-semibold">Candies, Ice Cream & Chocolates <br>Happy birthday Priyankaaa💫</p>
+
+        <div class="flex flex-col items-center">
+            <div id="postcard-container" class="postcard-container">
+                <div id="postcard" class="postcard" onclick="togglePostcard()">
+                    <div class="postcard-front">
+                        <div class="ribbon-top"></div>
+                        <h2 class="text-4xl font-bold text-[#d2527f] font-['Pacifico'] mb-4">Click to Open!</h2>
+                        <p class="text-gray-600 text-base italic">A sweet surprise awaits... <br> For Miss Priyankaaa💫</p>
+                        <div class="ribbon-bottom"></div>
+                    </div>
+                    <div class="postcard-back">
+                        <div class="card-content">
+                            <h2 class="text-3xl font-bold text-[#d2527f] font-['Pacifico'] mb-4">Happy Birthday!</h2>
+                            <p class="text-gray-700 text-lg mb-4">Hope your day is as sweet as this treat!</p>
+                            <img src="c.jpg" alt="Birthday image" class="rounded-lg shadow-lg mb-6">
+                            <a href="hb.html" class="candy-button inline-block">
+                                Click here for the next clue!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">
+                Note: Always keep smiling😊.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function togglePostcard() {
+            const postcard = document.getElementById('postcard');
+            postcard.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

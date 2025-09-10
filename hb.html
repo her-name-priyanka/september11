@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍦 Sweet Birthday Celebration 🍦</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
+        .bubblegum { font-family: 'Bubblegum Sans', cursive; }
+        .fredoka { font-family: 'Fredoka', sans-serif; }
+        
+        body {
+            background: linear-gradient(135deg, #fef3f4 0%, #fdf2f8 25%, #f0fdf4 50%, #fefce8 75%, #fef3f4 100%);
+            overflow-x: hidden;
+        }
+        
+        .ice-cream-float {
+            animation: iceCreamFloat 6s ease-in-out infinite;
+        }
+        
+        .ice-cream-float:nth-child(2n) { animation-delay: -2s; }
+        .ice-cream-float:nth-child(3n) { animation-delay: -4s; }
+        
+        @keyframes iceCreamFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
+            75% { transform: translateY(-25px) rotate(1deg); }
+        }
+        
+        .drip {
+            animation: chocolateDrip 4s ease-in-out infinite;
+        }
+        
+        .drip:nth-child(2n) { animation-delay: -1s; }
+        .drip:nth-child(3n) { animation-delay: -2s; }
+        
+        @keyframes chocolateDrip {
+            0% { transform: translateY(0px) scaleY(1); }
+            50% { transform: translateY(20px) scaleY(1.5); }
+            100% { transform: translateY(0px) scaleY(1); }
+        }
+        
+        .bouncing-candy {
+            animation: candyBounce 3s ease-in-out infinite;
+        }
+        
+        .bouncing-candy:nth-child(2n) { animation-delay: -0.5s; }
+        .bouncing-candy:nth-child(3n) { animation-delay: -1s; }
+        .bouncing-candy:nth-child(4n) { animation-delay: -1.5s; }
+        
+        @keyframes candyBounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+        
+        .sprinkle {
+            animation: sprinkleFall 8s linear infinite;
+        }
+        
+        .sprinkle:nth-child(2n) { animation-delay: -2s; animation-duration: 10s; }
+        .sprinkle:nth-child(3n) { animation-delay: -4s; animation-duration: 6s; }
+        .sprinkle:nth-child(4n) { animation-delay: -6s; animation-duration: 9s; }
+        
+        @keyframes sprinkleFall {
+            0% { 
+                transform: translateY(-100vh) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg); 
+                opacity: 0.3; 
+            }
+        }
+        
+        .interactive-treat {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .interactive-treat:hover {
+            transform: scale(1.2) rotate(10deg);
+            filter: brightness(1.2);
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 182, 193, 0.5);
+            animation: messageGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes messageGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+                border-color: rgba(255, 182, 193, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(255, 182, 193, 0.7);
+                border-color: rgba(255, 182, 193, 0.8);
+            }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #78e08f, #60a3bc, #8e44ad);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            25% { transform: rotate(3deg); }
+            50% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+        
+        .pop-in {
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0) rotate(180deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        .sweet-button {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #fecfef);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 154, 158, 0.3);
+        }
+        
+        .sweet-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 154, 158, 0.4);
+            background: linear-gradient(135deg, #fecfef, #ff9a9e, #fecfef);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative">
+   
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+       
+        <div class="ice-cream-float absolute text-8xl" style="top: 15%; left: 10%;">🍦</div>
+        <div class="ice-cream-float absolute text-6xl" style="top: 25%; right: 15%;">🍨</div>
+        <div class="ice-cream-float absolute text-7xl" style="bottom: 30%; left: 8%;">🧁</div>
+        <div class="ice-cream-float absolute text-9xl" style="bottom: 20%; right: 12%;">🍦</div>
+        <div class="ice-cream-float absolute text-5xl" style="top: 40%; left: 5%;">🍰</div>
+        <div class="ice-cream-float absolute text-6xl" style="top: 60%; right: 8%;">🍨</div>
+    </div>
+
+    <div class="fixed top-20 left-20 interactive-treat text-6xl pointer-events-auto" onclick="createWish(this, '🌈 Sweet dreams come true Miss Priyankaaa💫 🌈')">🍦</div>
+    <div class="fixed top-32 right-24 interactive-treat text-5xl pointer-events-auto" onclick="createWish(this, '🎂 Another year sweeter! 🎂')">🧁</div>
+    <div class="fixed bottom-40 left-16 interactive-treat text-7xl pointer-events-auto" onclick="createWish(this, '🍓 Life is berry wonderful! 🍓')">🍨</div>
+    <div class="fixed bottom-32 right-20 interactive-treat text-6xl pointer-events-auto" onclick="createWish(this, '🎉 Sprinkle joy everywhere! 🎉')">🍰</div>
+ 
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="drip absolute w-4 h-16 bg-amber-600 rounded-full" style="top: 10%; left: 20%;"></div>
+        <div class="drip absolute w-3 h-12 bg-amber-700 rounded-full" style="top: 15%; right: 25%;"></div>
+        <div class="drip absolute w-5 h-20 bg-amber-600 rounded-full" style="bottom: 35%; left: 15%;"></div>
+        <div class="drip absolute w-3 h-14 bg-amber-700 rounded-full" style="bottom: 25%; right: 18%;"></div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="bouncing-candy absolute text-4xl" style="top: 20%; left: 30%;">🍭</div>
+        <div class="bouncing-candy absolute text-3xl" style="top: 50%; right: 30%;">🍬</div>
+        <div class="bouncing-candy absolute text-4xl" style="bottom: 40%; left: 25%;">🍫</div>
+        <div class="bouncing-candy absolute text-3xl" style="bottom: 60%; right: 35%;">🍭</div>
+        <div class="bouncing-candy absolute text-2xl" style="top: 35%; left: 70%;">🍬</div>
+        <div class="bouncing-candy absolute text-3xl" style="top: 70%; right: 60%;">🍫</div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="sprinkle absolute w-1 h-4 bg-pink-400 rounded-full" style="left: 15%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-green-400 rounded-full" style="left: 25%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-yellow-400 rounded-full" style="left: 35%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-blue-400 rounded-full" style="left: 45%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-purple-400 rounded-full" style="left: 55%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-pink-400 rounded-full" style="left: 65%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-green-400 rounded-full" style="left: 75%;"></div>
+        <div class="sprinkle absolute w-1 h-4 bg-yellow-400 rounded-full" style="left: 85%;"></div>
+    </div>
+
+    <div class="flex items-center justify-center min-h-screen px-4 relative z-10">
+        <div class="message-container rounded-3xl p-12 max-w-4xl mx-auto text-center relative">
+        
+            <div class="wiggle absolute -top-6 -left-6 text-4xl">🍒</div>
+            <div class="wiggle absolute -top-8 -right-4 text-3xl">🍓</div>
+            <div class="wiggle absolute -bottom-4 -left-8 text-4xl">🥝</div>
+            <div class="wiggle absolute -bottom-6 -right-6 text-3xl">🍊</div>
+            
+            <h1 class="bubblegum text-7xl md:text-9xl font-bold rainbow-text mb-8">
+                SWEET BIRTHDAY!
+            </h1>
+            
+            <div class="text-6xl mb-8 wiggle">🎂🍦🎉</div>
+            
+            <p class="fredoka text-2xl md:text-3xl text-pink-600 mb-8 font-medium leading-relaxed">
+                Life is like ice cream...<br>
+                <span class="font-bold text-green-500">Enjoy it before it melts!</span><br>
+                <span class="font-bold text-yellow-500">Make every scoop count! 🍨</span>
+            </p>
+            
+            <button id="sweetCelebration" class="sweet-button text-white font-bold py-4 px-10 rounded-full text-xl fredoka">
+                🍦 SCOOP UP THE FUN! 🍦
+            </button>
+            
+            <div id="sweetWish" class="mt-8 text-xl fredoka text-purple-600 font-medium opacity-0 transition-opacity duration-1000"></div>
+        </div>
+    </div>
+    
+    <div class="fixed top-1/4 left-1/3 interactive-treat text-3xl pointer-events-auto cursor-pointer" onclick="createSparkleEffect()">✨</div>
+    <div class="fixed top-3/4 right-1/4 interactive-treat text-4xl pointer-events-auto cursor-pointer" onclick="createSparkleEffect()">🌟</div>
+
+    <div id="wishBubbles" class="fixed inset-0 pointer-events-none z-50"></div>
+    
+    <script>
+        const sweetWishes = [
+            "🍭 May your day be as sweet as you Miss Priyankaaa💫 🍭",
+            "🧁 Here's to another year of delicious adventures! 🧁",
+            "🍰 Life's sweetest moments are yet to come! 🍰",
+            "🍦 Scoop up all the happiness today Miss Priyankaaa💫 🍦",
+            "🎂 Your sweetness makes the world better! 🎂"
+        ];
+
+        document.getElementById('sweetCelebration').addEventListener('click', function() {
+            const wishElement = document.getElementById('sweetWish');
+            const randomWish = sweetWishes[Math.floor(Math.random() * sweetWishes.length)];
+            
+            wishElement.textContent = randomWish;
+            wishElement.style.opacity = '1';
+            
+            this.textContent = '🎉 MORE SWEET MAGIC! 🎉';
+            
+            createIceCreamExplosion();
+            addMoreSprinkles();
+        });
+        
+        function createWish(element, message) {
+
+            const bubble = document.createElement('div');
+            bubble.className = 'pop-in absolute bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-lg fredoka font-medium text-pink-600 border-2 border-pink-300 shadow-lg pointer-events-none';
+            bubble.textContent = message;
+            bubble.style.left = element.offsetLeft + 'px';
+            bubble.style.top = (element.offsetTop - 80) + 'px';
+            bubble.style.zIndex = '1000';
+            
+            document.getElementById('wishBubbles').appendChild(bubble);
+       
+            element.style.animation = 'popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+
+            setTimeout(() => {
+                bubble.style.animation = 'fadeOut 0.5s ease-out forwards';
+                setTimeout(() => bubble.remove(), 500);
+            }, 3000);
+        }
+
+        function createSparkleEffect() {
+            const sparkles = ['✨', '🌟', '💫', '⭐'];
+            
+            for (let i = 0; i < 8; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.className = 'fixed text-2xl pointer-events-none';
+                sparkle.style.left = Math.random() * window.innerWidth + 'px';
+                sparkle.style.top = Math.random() * window.innerHeight + 'px';
+                sparkle.style.zIndex = '1000';
+                sparkle.style.animation = 'popIn 1s ease-out forwards';
+                sparkle.style.animationDelay = i * 0.1 + 's';
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        }
+
+        function createIceCreamExplosion() {
+            const treats = ['🍦', '🍨', '🧁', '🍰', '🍭', '🍬', '🍫'];
+            
+            for (let i = 0; i < 12; i++) {
+                const treat = document.createElement('div');
+                treat.textContent = treats[Math.floor(Math.random() * treats.length)];
+                treat.className = 'fixed text-4xl pointer-events-none';
+                treat.style.left = '50%';
+                treat.style.top = '50%';
+                treat.style.zIndex = '1000';
+                treat.style.transform = 'translate(-50%, -50%)';
+                
+
+                const angle = (i / 12) * 360;
+                const distance = 200 + Math.random() * 100;
+                const endX = Math.cos(angle * Math.PI / 180) * distance;
+                const endY = Math.sin(angle * Math.PI / 180) * distance;
+                
+                treat.style.animation = `explode 2s ease-out forwards`;
+                treat.style.setProperty('--endX', endX + 'px');
+                treat.style.setProperty('--endY', endY + 'px');
+                
+                document.body.appendChild(treat);
+                
+                setTimeout(() => {
+                    treat.remove();
+                }, 2000);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explode {
+                0% { 
+                    transform: translate(-50%, -50%) scale(1); 
+                    opacity: 1; 
+                }
+                100% { 
+                    transform: translate(calc(-50% + var(--endX)), calc(-50% + var(--endY))) scale(0.5); 
+                    opacity: 0; 
+                }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        function addMoreSprinkles() {
+            const colors = ['bg-pink-400', 'bg-green-400', 'bg-yellow-400', 'bg-blue-400', 'bg-purple-400', 'bg-red-400'];
+            
+            for (let i = 0; i < 30; i++) {
+                const sprinkle = document.createElement('div');
+                sprinkle.className = `sprinkle absolute w-1 h-4 rounded-full ${colors[Math.floor(Math.random() * colors.length)]}`;
+                sprinkle.style.left = Math.random() * 100 + '%';
+                sprinkle.style.animationDelay = Math.random() * 2 + 's';
+                sprinkle.style.animationDuration = (6 + Math.random() * 4) + 's';
+                
+                document.body.appendChild(sprinkle);
+                
+                setTimeout(() => {
+                    sprinkle.remove();
+                }, 8000);
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            const sweetEffect = document.createElement('div');
+            sweetEffect.textContent = ['🍦', '🍨', '🧁', '✨'][Math.floor(Math.random() * 4)];
+            sweetEffect.style.position = 'fixed';
+            sweetEffect.style.left = e.clientX + 'px';
+            sweetEffect.style.top = e.clientY + 'px';
+            sweetEffect.style.pointerEvents = 'none';
+            sweetEffect.style.fontSize = '24px';
+            sweetEffect.style.zIndex = '1000';
+            sweetEffect.style.animation = 'popIn 1s ease-out forwards';
+            
+            document.body.appendChild(sweetEffect);
+            
+            setTimeout(() => {
+                sweetEffect.remove();
+            }, 1000);
+        });
+
+        setInterval(() => {
+            const treats = ['🍒', '🍓', '🥝', '🍊', '🍋'];
+            const treat = document.createElement('div');
+            treat.textContent = treats[Math.floor(Math.random() * treats.length)];
+            treat.className = 'ice-cream-float absolute text-3xl pointer-events-none';
+            treat.style.left = Math.random() * 100 + '%';
+            treat.style.top = Math.random() * 100 + '%';
+            treat.style.animationDuration = (4 + Math.random() * 4) + 's';
+            
+            document.body.appendChild(treat);
+            
+            setTimeout(() => {
+                treat.remove();
+            }, 8000);
+        }, 3000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97042caa643f444b',t:'MTc1NTM4MTMxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
